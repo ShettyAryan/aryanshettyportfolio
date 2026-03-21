@@ -61,10 +61,10 @@ export default function CTA() {
 
         <FadeUp delay={0.4}>
           <a
-            href="mailto:aryan@constructdev.in"
+            href="mailto:aryanshetty.dev@gmail.com"
             className="font-mono-custom text-[11px] text-ghost hover:text-white/50 transition-colors duration-200 block"
           >
-            or reach me directly at aryan@constructdev.in
+            or reach me directly at aryanshetty.dev@gmail.com
           </a>
         </FadeUp>
       </div>

@@ -4,11 +4,23 @@ import { useState } from 'react'
 import { FadeUp, Stagger, StaggerItem } from '@/components/ui/Motion'
 
 const contactLinks = [
-  { label: 'Email', value: 'aryan@constructdev.in', href: 'mailto:aryan@constructdev.in' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/aryandevelops', href: '#' },
-  { label: 'Twitter / X', value: '@AryanDevelops01', href: '#' },
-  { label: 'Based in', value: 'India · Available globally', href: null },
-]
+  {
+    label: "Email",
+    value: "aryanshetty.dev@gmail.com",
+    href: "mailto:aryanshetty.dev@gmail.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/aryandevelops",
+    href: "https://www.linkedin.com/in/aryanshetty01/",
+  },
+  {
+    label: "Twitter / X",
+    value: "@AryanDevelops",
+    href: "https://x.com/AryanDevelops",
+  },
+  { label: "Based in", value: "India · Available globally", href: null },
+];
 
 const projectTypes = [
   'Web Design',
@@ -229,7 +241,7 @@ export default function ContactSection() {
                 </motion.button>
 
                 <p className="font-mono-custom text-[10px] text-ghost text-center mt-1">
-                  Or email directly at aryan@constructdev.in
+                  Or email directly at aryanshetty.dev@gmail.com
                 </p>
               </form>
             )}

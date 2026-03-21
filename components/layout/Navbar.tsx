@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
 const navLinks = [
-  { label: 'Work', href: '#work' },
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#cta' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Services', href: '/#services' },
+  { label: 'About', href: '/#about' },
+  { label: 'Contact', href: '/#cta' },
 ]
 
 export default function Navbar() {
@@ -34,8 +34,8 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-10 h-16 flex items-center justify-between transition-all duration-300 ${
           scrolled
-            ? 'bg-paper/85 backdrop-blur-md border-b border-ink/[0.08]'
-            : 'bg-transparent'
+            ? "bg-paper/85 backdrop-blur-md border-b border-ink/[0.08]"
+            : "bg-transparent"
         }`}
       >
         {/* Logo */}
@@ -64,18 +64,30 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-5">
-          <Link href="#" className="hidden md:block font-sans text-[12px] text-ghost hover:text-ink transition-colors duration-200">
+          <Link
+            href="https://www.linkedin.com/in/aryanshetty01/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block font-sans text-[12px] text-ghost hover:text-ink transition-colors duration-200"
+          >
             LinkedIn
           </Link>
-          <Link href="#" className="hidden md:block font-sans text-[12px] text-ghost hover:text-ink transition-colors duration-200">
+          <Link
+            href="https://x.com/AryanDevelops"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block font-sans text-[12px] text-ghost hover:text-ink transition-colors duration-200"
+          >
             Twitter
           </Link>
           <Link
-            href="#cta"
+            href="/contact"
             className="hidden md:flex items-center gap-1.5 bg-ink text-paper font-sans text-[13px] font-medium px-5 py-2.5 rounded-full hover:opacity-80 transition-all duration-200 hover:-translate-y-[1px] group"
           >
             Let&apos;s Talk
-            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+              →
+            </span>
           </Link>
 
           {/* Hamburger */}
@@ -93,7 +105,9 @@ export default function Navbar() {
               className="block w-5 h-px bg-ink"
             />
             <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              animate={
+                mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }
+              }
               className="block w-5 h-px bg-ink"
             />
           </button>
@@ -125,7 +139,11 @@ export default function Navbar() {
                   key={link.label}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5 },
+                    },
                   }}
                 >
                   <Link
@@ -144,13 +162,28 @@ export default function Navbar() {
               transition={{ delay: 0.4 }}
               className="absolute bottom-10 flex gap-6"
             >
-              <Link href="#" className="text-ghost text-sm font-mono-custom hover:text-paper transition-colors">LinkedIn</Link>
-              <Link href="#" className="text-ghost text-sm font-mono-custom hover:text-paper transition-colors">Twitter</Link>
-              <Link href="#" className="text-ghost text-sm font-mono-custom hover:text-paper transition-colors">Dribbble</Link>
+              <Link
+                href="#"
+                className="text-ghost text-sm font-mono-custom hover:text-paper transition-colors"
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href="#"
+                className="text-ghost text-sm font-mono-custom hover:text-paper transition-colors"
+              >
+                Twitter
+              </Link>
+              <Link
+                href="#"
+                className="text-ghost text-sm font-mono-custom hover:text-paper transition-colors"
+              >
+                Dribbble
+              </Link>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

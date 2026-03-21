@@ -2,12 +2,14 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { AnimatedGridPattern } from '@/components/ui/animated-grid-pattern'
+import { cn } from '@/lib/utils'
 
 const industries = [
   'Financial Services', 'Real Estate', 'Architecture',
   'E-Commerce', 'Startups', 'Cosmetology', 'Hospitality',
   'Financial Services', 'Real Estate', 'Architecture',
-  'E-Commerce', 'Startups', 'Cosmetology', 'Hospitality',
+  'E-Commerce', 'Startups', 'Cosmetology', 'Hospitality', 'B2B', 'D2C',
 ]
 
 function useTypewriter(words: string[], speed = 80, pause = 2000) {
@@ -38,6 +40,24 @@ function useTypewriter(words: string[], speed = 80, pause = 2000) {
   return display
 }
 
+/** Lighter grid on small screens (performance + calmer look); tighter on tablet/desktop. */
+function useHeroGridConfig() {
+  const [config, setConfig] = useState({ numSquares: 26, cell: 48 })
+  useEffect(() => {
+    const run = () => {
+      const w = window.innerWidth
+      if (w < 640) setConfig({ numSquares: 18, cell: 52 })
+      else if (w < 768) setConfig({ numSquares: 22, cell: 48 })
+      else if (w < 1024) setConfig({ numSquares: 30, cell: 44 })
+      else setConfig({ numSquares: 42, cell: 40 })
+    }
+    run()
+    window.addEventListener('resize', run)
+    return () => window.removeEventListener('resize', run)
+  }, [])
+  return config
+}
+
 const heroVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
@@ -50,13 +70,39 @@ const lineVariant = {
 
 export default function Hero() {
   const typed = useTypewriter(['FinanceBro.', 'Real Estate Sites.', 'AI Products.', 'Digital Systems.'])
+  const grid = useHeroGridConfig()
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+    <section className="relative min-h-[100dvh] flex flex-col items-center justify-center pt-24 pb-16 px-4 sm:px-6 overflow-hidden">
+      {/* Animated grid — masked & skewed; tuned per breakpoint */}
+      <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+        <AnimatedGridPattern
+          numSquares={grid.numSquares}
+          width={grid.cell}
+          height={grid.cell}
+          maxOpacity={0.08}
+          duration={3}
+          repeatDelay={0.5}
+          className={cn(
+            'text-ink/[0.18]',
+            '[mask-image:radial-gradient(min(92vw,280px)_circle_at_center,white,transparent)]',
+            'sm:[mask-image:radial-gradient(min(100vw,380px)_circle_at_center,white,transparent)]',
+            'md:[mask-image:radial-gradient(420px_circle_at_center,white,transparent)]',
+            'lg:[mask-image:radial-gradient(560px_circle_at_center,white,transparent)]',
+            'inset-x-0 inset-y-[-24%] h-[min(200%,110vh)] sm:inset-y-[-28%] sm:h-[200%]',
+            'md:inset-y-[-30%] lg:h-[200%]',
+            'skew-y-6 sm:skew-y-8 md:skew-y-10 lg:skew-y-12',
+          )}
+        />
+      </div>
+
       {/* Radial glow behind hero */}
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[640px] h-[640px] rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(200,169,122,0.09) 0%, transparent 70%)' }}
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[min(92vw,640px)] h-[min(92vw,640px)] sm:w-[640px] sm:h-[640px] rounded-full z-[1]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(200,169,122,0.09) 0%, transparent 70%)",
+        }}
       />
 
       {/* Hero text block */}
@@ -77,22 +123,29 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           variants={lineVariant}
-          className="font-serif text-[clamp(52px,9vw,82px)] leading-[1.05] tracking-[-0.025em] text-ink mb-6"
+          className="font-serif text-[clamp(42px,10vw,82px)] leading-[1.05] tracking-[-0.025em] text-ink mb-6"
         >
-          Aryan<br />
+          Aryan
+          <br />
           <em className="font-serif-italic">Shetty</em>
         </motion.h1>
 
         {/* Subline */}
-        <motion.p variants={lineVariant} className="font-sans text-[17px] text-muted leading-[1.75] max-w-md mx-auto mb-3">
-          I design and build digital products that are{' '}
-          <span className="text-ink font-medium">simple, scalable,</span> and{' '}
+        <motion.p
+          variants={lineVariant}
+          className="font-sans text-[17px] text-muted leading-[1.75] max-w-md mx-auto mb-3"
+        >
+          I design and build digital products that are{" "}
+          <span className="text-ink font-medium">simple, scalable,</span> and{" "}
           <span className="text-ink font-medium">conversion-focused.</span>
         </motion.p>
 
         {/* Typewriter */}
-        <motion.p variants={lineVariant} className="font-mono-custom text-[12px] text-ghost mb-2 h-5">
-          Currently building:{' '}
+        <motion.p
+          variants={lineVariant}
+          className="font-mono-custom text-[12px] text-ghost mb-2 h-5"
+        >
+          Currently building:{" "}
           <span className="text-muted">
             {typed}
             <span className="inline-block w-[2px] h-[13px] bg-gold ml-[1px] align-middle animate-pulse" />
@@ -100,21 +153,27 @@ export default function Hero() {
         </motion.p>
 
         {/* Meta */}
-        <motion.p variants={lineVariant} className="font-mono-custom text-[11px] text-ghost mb-10">
+        <motion.p
+          variants={lineVariant}
+          className="font-mono-custom text-[11px] text-ghost mb-10"
+        >
           Founder @ ConstructDev
         </motion.p>
 
         {/* CTA */}
-        <motion.div variants={lineVariant} className="flex items-center justify-center gap-4 flex-wrap">
+        <motion.div
+          variants={lineVariant}
+          className="flex items-center justify-center gap-4 flex-wrap"
+        >
           <Link
-            href="#work"
+            href="/work"
             className="arrow-link group inline-flex items-center gap-2 bg-ink text-paper font-sans text-[14px] font-medium px-8 py-4 rounded-full hover:opacity-85 transition-all duration-300 hover:-translate-y-[2px]"
           >
             View My Work
             <span className="arrow">→</span>
           </Link>
           <Link
-            href="#cta"
+            href="/contact"
             className="inline-flex items-center gap-2 border border-ink/20 text-ink font-sans text-[14px] font-medium px-8 py-4 rounded-full hover:border-ink/50 transition-all duration-300"
           >
             Let&apos;s Talk
@@ -139,8 +198,8 @@ export default function Hero() {
                 key={i}
                 className="font-sans text-[13px] text-ghost flex items-center gap-3"
               >
+                <span className="w-2 h-2 rounded-full bg-ghost/40 inline-block" />
                 {item}
-                <span className="w-1 h-1 rounded-full bg-ghost/40 inline-block" />
               </span>
             ))}
           </div>
@@ -148,7 +207,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Scroll indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}
@@ -156,11 +215,13 @@ export default function Hero() {
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="w-px h-10 bg-gradient-to-b from-ghost/60 to-transparent"
         />
-        <span className="font-mono-custom text-[9px] uppercase tracking-[0.12em] text-ghost/60">scroll</span>
-      </motion.div>
+        <span className="font-mono-custom text-[9px] uppercase tracking-[0.12em] text-ghost/60">
+          scroll
+        </span>
+      </motion.div> */}
     </section>
-  )
+  );
 }
