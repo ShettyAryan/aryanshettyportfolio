@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: 'Aryan Shetty — Product Designer & Developer',
   description: 'I design and build digital products that are simple, scalable, and conversion-focused. Founder at ConstructDev.',
   keywords: ['Product Designer', 'UI/UX Designer', 'Web Developer', 'ConstructDev', 'Aryan Shetty'],
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: '/icon.svg',
+  },
   openGraph: {
     title: 'Aryan Shetty — Product Designer & Developer',
     description: 'I design and build digital products that are simple, scalable, and conversion-focused.',
