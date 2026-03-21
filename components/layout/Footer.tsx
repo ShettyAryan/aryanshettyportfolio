@@ -10,8 +10,8 @@ export default function Footer() {
           <span>ConstructDev</span>
         </div>
         <div className="flex gap-6">
-          {['LinkedIn', 'Twitter', 'Dribbble'].map((s) => (
-            <Link key={s} href="#" className="text-white/30 text-xs font-sans hover:text-white/70 transition-colors duration-200">
+          {['LinkedIn', 'Twitter'].map((s) => (
+            <Link key={s} href="/contact" className="text-white/30 text-xs font-sans hover:text-white/70 transition-colors duration-200">
               {s}
             </Link>
           ))}

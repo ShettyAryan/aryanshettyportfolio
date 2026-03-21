@@ -5,7 +5,7 @@ import { FadeUp } from '@/components/ui/Motion'
 import Image from 'next/image'
 
 const skills = ['UI/UX Design', 'Product Strategy', 'Web Development', 'AI Integration']
-const tools = ['Figma', 'Webflow', 'Framer', 'WordPress', 'Next.js']
+const tools = ['Figma', 'Webflow', 'Framer', 'WordPress', 'Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'JavaScript','Python','Agentic AI']
 
 export default function About() {
   return (
@@ -113,10 +113,10 @@ export default function About() {
 
             <FadeUp delay={0.5}>
               <Link
-                href="/about"
+                href="/work"
                 className="arrow-link group inline-flex items-center gap-2 font-sans text-[14px] font-medium text-ink border-b border-ink/20 pb-0.5 hover:border-ink transition-colors duration-200"
               >
-                Read More About Me <span className="arrow">→</span>
+                Check out my work <span className="arrow">→</span>
               </Link>
             </FadeUp>
           </div>
