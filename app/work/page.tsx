@@ -1,12 +1,13 @@
+import { Suspense } from 'react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WorkHero from '@/components/sections/WorkHero'
-import CaseStudies from '@/components/sections/CaseStudies'
-import OtherProjects from '@/components/sections/OtherProjects'
+import AllWork from '@/components/sections/AllWork'
 
 export const metadata = {
-  title: 'Work — Aryan Shetty',
-  description: 'A curated collection of design and development work spanning finance, real estate, startups, and beyond.',
+  title: 'All Work — Aryan Shetty',
+  description:
+    'Design and development projects spanning finance, real estate, e-commerce, and more — with details and live links.',
 }
 
 export default function WorkPage() {
@@ -15,8 +16,9 @@ export default function WorkPage() {
       <Navbar />
       <main>
         <WorkHero />
-        <CaseStudies />
-        <OtherProjects />
+        <Suspense fallback={<div className="min-h-[50vh] bg-paper" aria-hidden />}>
+          <AllWork />
+        </Suspense>
       </main>
       <Footer />
     </>

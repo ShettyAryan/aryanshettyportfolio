@@ -21,7 +21,7 @@ export default function WorkHero() {
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-sans text-[11px] font-medium uppercase tracking-[0.09em] text-ghost block mb-4"
         >
-          Work
+          All Work
         </motion.span>
 
         <motion.h1
@@ -30,7 +30,7 @@ export default function WorkHero() {
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.08 }}
           className="font-serif text-[clamp(44px,7vw,72px)] leading-[1.1] tracking-[-0.025em] text-ink mb-6"
         >
-          Selected <em className="font-serif-italic">Projects</em>
+          All <em className="font-serif-italic">Work</em>
         </motion.h1>
 
         <motion.p
@@ -39,8 +39,8 @@ export default function WorkHero() {
           transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.16 }}
           className="font-sans text-[16px] text-muted leading-[1.75] max-w-lg"
         >
-          A curated collection of design and development work spanning finance,
-          real estate, startups, and beyond.
+          Every project in one place — open a card for the full story, a screenshot, and a link to the live site when
+          available.
         </motion.p>
       </div>
     </section>
