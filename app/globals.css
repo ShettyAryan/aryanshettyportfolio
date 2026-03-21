@@ -23,7 +23,13 @@ body {
   color: var(--ink);
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
-  cursor: none;
+}
+
+/* Hide default cursor only when a precise pointer is available (mouse / trackpad), not touch. */
+@media (pointer: fine) and (hover: hover) {
+  body {
+    cursor: none;
+  }
 }
 
 /* ── Custom cursor ── */
@@ -52,11 +58,13 @@ body {
   transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
 }
 
-body:has(a:hover) .cursor-ring,
-body:has(button:hover) .cursor-ring {
-  width: 52px;
-  height: 52px;
-  border-color: rgba(28,27,24,0.15);
+@media (pointer: fine) and (hover: hover) {
+  body:has(a:hover) .cursor-ring,
+  body:has(button:hover) .cursor-ring {
+    width: 52px;
+    height: 52px;
+    border-color: rgba(28,27,24,0.15);
+  }
 }
 
 /* ── Grain overlay ── */

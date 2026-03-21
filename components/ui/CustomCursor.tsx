@@ -1,17 +1,37 @@
 'use client'
-import { useEffect, useRef } from 'react'
+
+import { useEffect, useRef, useState } from 'react'
+
+function useFinePointer() {
+  const [enabled, setEnabled] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(pointer: fine)')
+    const sync = () => setEnabled(mq.matches)
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
+
+  return enabled
+}
 
 export default function CustomCursor() {
+  const finePointer = useFinePointer()
   const dotRef = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (!finePointer) return
+
     const dot = dotRef.current
     const ring = ringRef.current
     if (!dot || !ring) return
 
-    let mouseX = 0, mouseY = 0
-    let ringX = 0, ringY = 0
+    let mouseX = 0,
+      mouseY = 0
+    let ringX = 0,
+      ringY = 0
     let raf: number
 
     const onMove = (e: MouseEvent) => {
@@ -35,7 +55,9 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', onMove)
       cancelAnimationFrame(raf)
     }
-  }, [])
+  }, [finePointer])
+
+  if (!finePointer) return null
 
   return (
     <>
