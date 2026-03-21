@@ -133,7 +133,7 @@ export default function Hero() {
         {/* Subline */}
         <motion.p
           variants={lineVariant}
-          className="font-sans text-[17px] text-muted leading-[1.75] max-w-md mx-auto mb-3"
+          className="font-sans text-[15px] sm:text-[16px] md:text-[17px] text-muted leading-[1.75] max-w-md mx-auto mb-3 px-1"
         >
           I design and build digital products that are{" "}
           <span className="text-ink font-medium">simple, scalable,</span> and{" "}
@@ -163,18 +163,18 @@ export default function Hero() {
         {/* CTA */}
         <motion.div
           variants={lineVariant}
-          className="flex items-center justify-center gap-4 flex-wrap"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto sm:mx-0 px-1 sm:px-0"
         >
           <Link
             href="/work"
-            className="arrow-link group inline-flex items-center gap-2 bg-ink text-paper font-sans text-[14px] font-medium px-8 py-4 rounded-full hover:opacity-85 transition-all duration-300 hover:-translate-y-[2px]"
+            className="arrow-link group inline-flex items-center justify-center gap-2 bg-ink text-paper font-sans text-[14px] font-medium px-8 py-3.5 sm:py-4 rounded-full hover:opacity-85 transition-all duration-300 hover:-translate-y-[2px] w-full sm:w-auto"
           >
             View My Work
             <span className="arrow">→</span>
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 border border-ink/20 text-ink font-sans text-[14px] font-medium px-8 py-4 rounded-full hover:border-ink/50 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 border border-ink/20 text-ink font-sans text-[14px] font-medium px-8 py-3.5 sm:py-4 rounded-full hover:border-ink/50 transition-all duration-300 w-full sm:w-auto"
           >
             Let&apos;s Talk
           </Link>
@@ -186,13 +186,13 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.8 }}
-        className="relative z-10 w-full mt-20 overflow-hidden"
+        className="relative z-10 w-full mt-14 sm:mt-20 overflow-hidden"
       >
-        <p className="text-center font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-ghost mb-4">
+        <p className="text-center font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-ghost mb-4 px-2">
           Worked with &amp; for
         </p>
         <div className="flex overflow-hidden">
-          <div className="flex gap-12 animate-marquee whitespace-nowrap">
+          <div className="flex gap-8 sm:gap-12 animate-marquee whitespace-nowrap">
             {industries.map((item, i) => (
               <span
                 key={i}

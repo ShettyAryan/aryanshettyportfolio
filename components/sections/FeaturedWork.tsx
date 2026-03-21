@@ -15,15 +15,15 @@ function HeroCard({ project }: { project: Project }) {
       className="group relative bg-ink rounded-3xl overflow-hidden mb-5"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-        <div className="p-12 md:p-14 flex flex-col justify-between min-h-[360px]">
+        <div className="p-6 sm:p-10 md:p-14 flex flex-col justify-between min-h-0 md:min-h-[360px]">
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <span className="font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-white/40 border border-white/15 rounded-full px-3 py-1.5">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+              <span className="font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-white/40 border border-white/15 rounded-full px-3 py-1.5 break-words text-left max-w-[min(100%,18rem)] sm:max-w-none">
                 {project.industry}
               </span>
-              <span className="font-mono-custom text-[10px] text-white/25">{project.year}</span>
+              <span className="font-mono-custom text-[10px] text-white/25 flex-shrink-0">{project.year}</span>
             </div>
-            <h3 className="font-serif text-[34px] leading-[1.1] text-white mb-4 tracking-[-0.02em]">
+            <h3 className="font-serif text-[clamp(26px,7vw,34px)] leading-[1.1] text-white mb-4 tracking-[-0.02em]">
               {project.name}
             </h3>
             <p className="font-sans text-[14px] text-white/45 leading-[1.75] max-w-sm">{project.summary}</p>
@@ -60,7 +60,7 @@ function ProjectCard({ project, delay = 0 }: { project: Project; delay?: number 
         <ProjectPreviewImage project={project} variant="featuredCard" />
       </div>
 
-      <div className="p-7 flex flex-col flex-1">
+      <div className="p-5 sm:p-7 flex flex-col flex-1 min-w-0">
         <div className="flex items-center justify-between mb-3">
           <span className="font-sans text-[10px] font-medium uppercase tracking-[0.09em] text-ghost border border-ink/10 rounded-full px-3 py-1">
             {project.industry}
@@ -85,7 +85,7 @@ export default function FeaturedWork() {
   const [hero, ...rest] = featured
 
   return (
-    <section id="work" className="py-32 px-6 md:px-10 bg-paper">
+    <section id="work" className="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 md:px-10 bg-paper">
       <div className="max-w-[1200px] mx-auto">
         <FadeUp className="mb-3">
           <span className="font-sans text-[11px] font-medium uppercase tracking-[0.09em] text-ghost">

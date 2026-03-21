@@ -1,6 +1,14 @@
 'use client'
 import { motion } from 'framer-motion'
 import { FadeUp, Stagger, StaggerItem } from '@/components/ui/Motion'
+import { cn } from '@/lib/utils'
+
+const serviceCardRadiusLg = [
+  'lg:rounded-[22px_2px_2px_22px]',
+  'lg:rounded-[2px]',
+  'lg:rounded-[2px]',
+  'lg:rounded-[2px_22px_22px_2px]',
+] as const
 
 const services = [
   {
@@ -57,7 +65,7 @@ const industries = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 px-6 md:px-10 bg-card">
+    <section id="services" className="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 md:px-10 bg-card">
       <div className="max-w-[1200px] mx-auto">
         <FadeUp className="mb-3">
           <span className="font-sans text-[11px] font-medium uppercase tracking-[0.09em] text-ghost">
@@ -72,18 +80,16 @@ export default function Services() {
         </FadeUp>
 
         {/* Services grid */}
-        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mb-16">
+        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-px mb-16">
           {services.map((service, i) => (
             <StaggerItem key={service.name}>
               <motion.div
                 whileHover={{ backgroundColor: '#F4F2EE' }}
                 transition={{ duration: 0.2 }}
-                className="bg-paper p-10 h-full flex flex-col gap-5 group cursor-default"
-                style={{
-                  borderRadius:
-                    i === 0 ? '22px 2px 2px 22px' :
-                    i === 3 ? '2px 22px 22px 2px' : '2px',
-                }}
+                className={cn(
+                  'bg-paper p-6 sm:p-8 lg:p-10 h-full flex flex-col gap-5 group cursor-default rounded-2xl lg:rounded-none border border-ink/[0.06] lg:border-0 shadow-sm lg:shadow-none',
+                  serviceCardRadiusLg[i],
+                )}
               >
                 <motion.div
                   className="text-muted group-hover:text-ink transition-colors duration-300"

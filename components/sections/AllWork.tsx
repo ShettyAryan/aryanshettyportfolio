@@ -75,12 +75,12 @@ function ProjectModal({
         transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="relative w-full max-w-[720px] max-h-[min(92vh,880px)] bg-paper rounded-t-3xl sm:rounded-3xl border border-ink/[0.08] shadow-2xl flex flex-col overflow-hidden"
       >
-        <div className="flex-shrink-0 flex items-center justify-between px-6 pt-5 pb-4 border-b border-ink/[0.06]">
-          <div>
-            <span className="font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-ghost block mb-1">
+        <div className="flex-shrink-0 flex items-start sm:items-center justify-between gap-3 px-4 sm:px-6 pt-5 pb-4 border-b border-ink/[0.06]">
+          <div className="min-w-0 flex-1">
+            <span className="font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-ghost block mb-1 break-words">
               {project.industry}
             </span>
-            <h2 className="font-serif text-[22px] sm:text-[26px] leading-tight text-ink tracking-[-0.02em] pr-4">
+            <h2 className="font-serif text-[20px] sm:text-[26px] leading-tight text-ink tracking-[-0.02em] pr-2">
               {project.name}
             </h2>
           </div>
@@ -94,7 +94,7 @@ function ProjectModal({
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-1 px-6 py-6 space-y-8">
+        <div className="overflow-y-auto flex-1 px-4 sm:px-6 py-5 sm:py-6 space-y-6 sm:space-y-8 overscroll-contain">
           <div className="flex flex-wrap gap-x-8 gap-y-2 text-[13px]">
             <div>
               <span className="font-mono-custom text-[10px] uppercase tracking-widest text-ghost block mb-0.5">
@@ -274,7 +274,7 @@ export default function AllWork() {
 
   return (
     <>
-      <section className="pb-28 px-6 md:px-10 bg-paper">
+      <section className="pb-20 sm:pb-24 lg:pb-28 px-4 sm:px-6 md:px-10 bg-paper">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {projects.map((project, i) => (

@@ -9,9 +9,9 @@ const tools = ['Figma', 'Webflow', 'Framer', 'WordPress', 'Next.js', 'React', 'T
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 md:px-10 bg-paper">
+    <section id="about" className="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 md:px-10 bg-paper">
       <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 items-center">
           {/* Photo col */}
           <FadeUp className="order-2 md:order-1">
             <motion.div
@@ -28,6 +28,7 @@ export default function About() {
                 alt="Aryan Shetty"
                 width={500}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover w-full h-full"
               />
 
@@ -37,12 +38,12 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute bottom-6 right-6 bg-white text-black rounded-2xl px-5 py-4 shadow-2xl"
+                className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-white text-black rounded-xl sm:rounded-2xl px-4 py-3 sm:px-5 sm:py-4 shadow-2xl max-w-[calc(100%-2rem)]"
               >
-                <p className="font-mono-custom text-[10px] text-black/40 uppercase tracking-widest mb-1">
+                <p className="font-mono-custom text-[9px] sm:text-[10px] text-black/40 uppercase tracking-widest mb-1">
                   Projects Built
                 </p>
-                <p className="font-serif text-[32px] leading-none text-black">
+                <p className="font-serif text-[26px] sm:text-[32px] leading-none text-black">
                   10+
                 </p>
               </motion.div>

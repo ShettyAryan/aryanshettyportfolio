@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import CustomCursor from '@/components/ui/CustomCursor'
 import GrainOverlay from '@/components/ui/GrainOverlay'
@@ -18,10 +18,16 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#F4F2EE',
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-paper text-ink antialiased overflow-x-hidden">
+      <body className="bg-paper text-ink antialiased overflow-x-hidden min-w-0">
         <GrainOverlay />
         <CustomCursor />
         {children}

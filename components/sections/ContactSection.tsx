@@ -51,12 +51,12 @@ export default function ContactSection() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-36 pb-20 px-6 md:px-10 bg-paper relative overflow-hidden">
+      <section className="pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 px-4 sm:px-6 md:px-10 bg-paper relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.3 }}
-          className="pointer-events-none absolute right-8 top-8 font-serif text-[180px] leading-none text-ink/[0.025] select-none"
+          className="pointer-events-none absolute right-2 top-6 sm:right-6 sm:top-8 md:right-8 md:top-8 font-serif text-[64px] sm:text-[100px] md:text-[140px] lg:text-[180px] leading-none text-ink/[0.025] select-none max-w-[50%] text-right"
         >
           04
         </motion.div>
@@ -75,7 +75,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-serif text-[clamp(44px,7vw,76px)] leading-[1.05] tracking-[-0.025em] text-ink mb-5"
+            className="font-serif text-[clamp(36px,9vw,76px)] leading-[1.05] tracking-[-0.025em] text-ink mb-5 text-balance"
           >
             Have a project or<br />
             collaboration in{' '}
@@ -94,8 +94,8 @@ export default function ContactSection() {
       </section>
 
       {/* Main grid */}
-      <section className="pb-32 px-6 md:px-10 bg-paper">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+      <section className="pb-20 sm:pb-28 lg:pb-32 px-4 sm:px-6 md:px-10 bg-paper">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
 
           {/* Left — contact details */}
           <div>
@@ -109,7 +109,7 @@ export default function ContactSection() {
                     {link.href ? (
                       <a
                         href={link.href}
-                        className="font-sans text-[16px] font-medium text-ink border-b border-ink/15 pb-0.5 hover:border-ink transition-colors duration-200 inline-block"
+                        className="font-sans text-[15px] sm:text-[16px] font-medium text-ink border-b border-ink/15 pb-0.5 hover:border-ink transition-colors duration-200 inline-block break-all sm:break-normal"
                       >
                         {link.value}
                       </a>
@@ -140,7 +140,7 @@ export default function ContactSection() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center justify-center text-center h-full bg-card rounded-3xl p-16"
+                className="flex flex-col items-center justify-center text-center h-full bg-card rounded-3xl p-8 sm:p-12 md:p-16 min-h-[280px] sm:min-h-0"
               >
                 <motion.div
                   initial={{ scale: 0 }}

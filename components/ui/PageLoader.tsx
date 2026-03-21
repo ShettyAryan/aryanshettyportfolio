@@ -7,7 +7,7 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const
 export default function PageLoader() {
   return (
     <div
-      className="fixed inset-0 z-[9990] flex min-h-[100dvh] flex-col items-center justify-center bg-paper/92 backdrop-blur-[10px]"
+      className="fixed inset-0 z-[9990] flex min-h-[100dvh] flex-col items-center justify-center bg-paper/92 backdrop-blur-[10px] pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
       role="status"
       aria-live="polite"
       aria-label="Loading page"
