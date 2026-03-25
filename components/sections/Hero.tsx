@@ -69,7 +69,7 @@ const lineVariant = {
 }
 
 export default function Hero() {
-  const typed = useTypewriter(['FinanceBro.', 'Real Estate Sites.', 'AI Products.', 'Digital Systems.'])
+  const typed = useTypewriter(['Digital Experiences.','High-Converting Websites.', 'AI Products.', 'Digital Systems.'])
   const grid = useHeroGridConfig()
 
   return (

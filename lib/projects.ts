@@ -120,6 +120,28 @@ export const projects: Project[] = [
     mockupAccent: "#0033FF",
   },
   {
+    slug: "sharma-enterprise",
+    name: "Sharma Enterprise",
+    summary:
+      "A structured, professional multi-page website built for a chartered accountant firm to enhance credibility and generate client enquiries.",
+    industry: "Finance · CA Firm",
+    year: "2025",
+    role: "Designer & Developer",
+    timeline: "3–4 weeks",
+    tools: ["Next.js", "Tailwind CSS"],
+    problem:
+      "Chartered accountant firms often lack a strong digital presence that effectively communicates expertise and builds trust with potential clients.",
+    outcome:
+      "Delivered a credibility-focused platform with clear service breakdowns and strong trust signals, improving enquiry generation.",
+    liveUrl: "https://sharmaenterprise.constructdev.in/",
+    screenshot:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1774456788/sharmaenterprise_babvrn.png",
+    dark: false,
+    homeFeatured: false,
+    homeOrder: 4,
+    mockupAccent: "#0033FF",
+  },
+  {
     slug: "quiet-quarters",
     name: "Quiet Quarters",
     summary:
@@ -184,6 +206,28 @@ export const projects: Project[] = [
     homeFeatured: false,
     homeOrder: 7,
     mockupAccent: "#C8A97A",
+  },
+    {
+    slug: "reddy-co",
+    name: "Reddy & Co.",
+    summary:
+      "A minimalist financial advisory website designed to reflect trust, simplicity, and clarity.",
+    industry: "Finance · Advisory",
+    year: "2025",
+    role: "Designer & Developer",
+    timeline: "2–3 weeks",
+    tools: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    problem:
+      "Financial advisory platforms often appear overly complex, making it difficult for users to trust and understand their offerings.",
+    outcome:
+      "Crafted a clean, intuitive interface with refined design elements that improve clarity and build user trust.",
+    liveUrl: "https://reddyco.constructdev.in/",
+    screenshot:
+      "https://res.cloudinary.com/dzq2acoyj/image/upload/v1774257678/reddyco_vkcuji.png",
+    dark: true,
+    homeFeatured: false,
+    homeOrder: 6,
+    mockupAccent: "#0033FF",
   },
   {
     slug: "summuro-ai",
