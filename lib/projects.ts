@@ -186,6 +186,28 @@ export const projects: Project[] = [
     mockupAccent: "#0033FF",
   },
   {
+    slug: "followmind",
+    name: "Followmind",
+    summary:
+      "A SaaS platform designed to help users capture, organize, and engage with valuable online content in a structured way.",
+    industry: "SaaS · Productivity",
+    year: "2026",
+    role: "Designer & Developer",
+    timeline: "4–5 weeks",
+    tools: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    problem:
+      "Users consume large amounts of online content but struggle to organize, revisit, and extract meaningful insights from it efficiently.",
+    outcome:
+      "Built a structured and intuitive platform that enables users to save, organize, and engage with content, improving knowledge retention and usability.",
+    liveUrl: "https://followmind.constructdev.in",
+    screenshot:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1774546962/followmind_mkjuia.png",
+    dark: true,
+    homeFeatured: false,
+    homeOrder: 2,
+    mockupAccent: "#0033FF",
+  },
+  {
     slug: "bakerist-cafe",
     name: "Bakerist Cafe",
     summary:
@@ -207,7 +229,7 @@ export const projects: Project[] = [
     homeOrder: 7,
     mockupAccent: "#C8A97A",
   },
-    {
+  {
     slug: "reddy-co",
     name: "Reddy & Co.",
     summary:
